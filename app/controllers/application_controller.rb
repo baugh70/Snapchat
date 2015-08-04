@@ -9,9 +9,7 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/' do
-    @tweet1 = Tweet.new("dududu", "I did it!")
-    @tweet2 = Tweet.new("tswift", "#Feein22")
-    @tweets = Tweet.all
+    @tweets = Snapchat.all
     erb :tweets
   end
 end
