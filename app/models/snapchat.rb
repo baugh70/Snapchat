@@ -4,8 +4,8 @@ class Snapchat
 
 	SNAPS = []
 
-	def initialize(user, to_user, caption, timer, time, format, link)
-		@user = user
+	def initialize(to_user, caption, timer, time, format, link)
+# 		@user = user
 		@to_user = to_user
 		@caption = caption
 		@timer = timer

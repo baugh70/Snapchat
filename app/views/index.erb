@@ -3,11 +3,19 @@
   <head>
     <title>FnapChat</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
   </head>
 	<p>Home</p>
 	<a href='/new'>
 	<button>New Snap</button>
 	</a>
+	<% @snaps.each do |snap| %>
+			<div class='tweet'>
+			<!-- 	do in html works with eeach element inside so this comment happens 3 times	 -->
+				<p> <%= snap.caption %> <%= snap.timer %> <%= snap.time %> <%= snap.format %> <%= snap.link %> </p>
+		</div>
+		<br><br>
+		<% end %>
   <body>
   </body>
 </html>
