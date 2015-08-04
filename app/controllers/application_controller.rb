@@ -19,7 +19,9 @@ class ApplicationController < Sinatra::Base
 	end
 	
 	post '/new' do
-		@snap = Snapchat.new(params[:to], params[:cap], params[:time], Time.now, "png", params[:url])
+    time  = Time.new
+    
+    @snap = Snapchat.new(params[:to], params[:cap], params[:time], "#{time.hour}:#{time.min}", "png", params[:url])
 		@snaps = Snapchat.all
 		erb :index
 	end
