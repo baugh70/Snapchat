@@ -1,5 +1,6 @@
 require "./config/enviornment"
-require "./app/models/tweet"
+require "./app/models/snapchat"
+require "./app/models/user"
 
 class ApplicationController < Sinatra::Base
   
@@ -10,6 +11,15 @@ class ApplicationController < Sinatra::Base
   
   get '/' do
     @tweets = Snapchat.all
-    erb :tweets
+		erb :index
   end
+	
+	get '/new' do
+		erb :snapchat
+	end
+	
+	post '/new' do
+		erb :index
+	end
+	
 end

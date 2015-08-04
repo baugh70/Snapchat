@@ -3,13 +3,38 @@
 	<head>
 		<title>Send Snapchat</title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrap.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 	</head>
 
 	<body>
-		<h1>Sending a Snap</h1>
-
-		<form> </form>
+		<h1 class="text-center">Sending a Snap</h1>
+		<form class="text-center" action='/new' method='POST'> 
+		<h3>Picture URL:</h3>
+		<input style='min-width:550px;' type="text" name='url'>
+		<br>
+		<h3>Caption:</h3>
+		<input style='min-width:350px;' type="text" name='cap'>
+		<br>
+		<h3>Recipient:</h3>
+		<input type="text" name='send-to'>
+		<br>
+		<h3>Time:</h3>
+		<select name='time'>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			</select>
+			<br><br>
+		<input type="submit" class="btn btn-outline btn-danger" >
+		</form>
 	</body>
 </html>
+<!-- url, to who, caption, time -->
