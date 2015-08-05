@@ -1,5 +1,5 @@
 class Snapchat
-	attr_reader :user, :to_user, :caption, :timer, :time, :format, :link
+	attr_reader :to_user, :caption, :timer, :time, :format, :link
 	attr_accessor :read
 
 	SNAPS = []
