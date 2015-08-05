@@ -20,10 +20,22 @@ class ApplicationController < Sinatra::Base
 	
 	post '/new' do
     time  = Time.new
-    
-    @snap = Snapchat.new(params[:to], params[:cap], params[:time], "#{time.hour}:#{time.min}", "png", params[:url])
+		
+		if (params[:url] == "") || (params[:url][0..3].downcase != "http")
+			@error = "URL"
+			erb :noPic
+		elsif (params[:to] == "")
+			@error = "RECIPIENT"
+			erb :noPic
+		elsif (params[:time] == "none")
+			@error = "TIME LIMIT"
+			erb :noPic
+		else
+			@snap = Snapchat.new(params[:to], params[:cap], params[:time], "#{time.hour}:#{time.min}", "png", params[:url])
 		@snaps = Snapchat.all
 		erb :index
+		end
+		
 	end
 	
 end

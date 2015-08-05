@@ -12,3 +12,6 @@
 	transform:scale(1.2,1.2);
 	background-color: rgba(39,139,210, 0.2);
 }
+textarea {
+	resize: none;
+}
