@@ -1,5 +1,5 @@
 require "./config/enviornment"
-require "./app/models/snapchat"
+require "./app/models/snap"
 require "./app/models/user"
 
 class ApplicationController < Sinatra::Base
@@ -10,11 +10,12 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/' do
-		time = Time.new
-		# 		this is just test code to test multiple tweets, we can delete it later
-		snap1 = Snapchat.new("params[:to]", "test caption", 5, "Sent at #{time.hour}:#{time.min}", "png", "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
-		snap2 = Snapchat.new("params[:to]", "test caption", 3, "Sent at #{time.hour}:#{time.min}", "png", "http://www.lauramcalister.com/wp-content/uploads/2015/07/534806-cat.jpg")
-    @snaps = Snapchat.all
+    @snaps = Snap.all
+# 		time = Time.new
+# 		# 		this is just test code to test multiple tweets, we can delete it later
+# 		snap1 = Snap.new("params[:to]", "test caption", 5, "Sent at #{time.hour}:#{time.min}", "png", "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
+# 		@snap2 = Snap.new("params[:to]", "test caption", 3, "Sent at #{time.hour}:#{time.min}", "png", "http://www.lauramcalister.com/wp-content/uploads/2015/07/534806-cat.jpg")
+#     @snap1.save
 		erb :index
   end
 	
@@ -31,13 +32,14 @@ class ApplicationController < Sinatra::Base
 		elsif (params[:to] == "")
 			@error = "RECIPIENT"
 			erb :noPic
-		elsif (params[:time] == "none")
+		elsif (params[:time] == "none")  
 			@error = "TIME LIMIT"
 			erb :noPic
 		else
-			snap = Snapchat.new(params[:to], params[:cap], params[:time], "#{time.hour}:#{time.min}", "png", params[:url])
-			@snaps = Snapchat.all
-			erb :index
+      @snap = Snap.new(:to => params[:to], :caption => params[:cap], :timer => params[:time], :time => "#{time.hour}:#{time.min}",:format => "png", :link => params[:url], :read => "false")
+      @snap.save
+      @snaps = Snap.all
+      redirect '/'
 		end
 		
 	end

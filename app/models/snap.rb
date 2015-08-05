@@ -1,4 +1,4 @@
-class Snapchat
+class Snap < ActiveRecord::Base
 # 	attr_reader :to_user, :caption, :timer, :time, :format, :link
 # 	attr_accessor :read
 
