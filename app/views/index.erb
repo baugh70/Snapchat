@@ -18,8 +18,8 @@
 			<div class='tweet' id='div<%= @num %>'>
 			<!-- 	do in html works with eeach element inside so this comment happens 3 times	 -->
 				<p> <%= snap.caption %> ||| <%= snap.timer %> ||| <%= snap.time %> |||<br> <img id='snap<%=@num%>' style='visibility: hidden; max-height: 300px; max-width: 300px;' src='<%= snap.link %>'> </p>
+				
 				<button class='btn btn-outline' onclick="show<%= @num %>()"> View Snap </button>
-        <p><%= snap.id %> </p>
         <% snap.read=("true") %>
         <% snap.save %>
 		</div>
