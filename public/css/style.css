@@ -1,17 +1,150 @@
-.tweet { 
-	border-radius: 35%;
-	padding: 50px;
-	margin: auto;
-	background-color: rgb(39,139,210);
-	max-width: 500px;
-	max-height: 500px;
-	transition: transform 2s, background-color 2s;
-	text-align: center;
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);
+/*
+ * giflinks
+ *
+ * MIT licensed
+ * Copyright (C) 2013 Tim Holman, http://tholman.com
+ */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-height: 1000000px;
 }
-.tweet:hover {
-	transform:scale(1.2,1.2);
-	background-color: rgba(39,139,210, 0.2);
+
+body {
+  -webkit-text-size-adjust: none;
+  padding-left: 80px;
+  padding-right: 80px;
+  min-width: 900px;
 }
+
+header {
+  position: relative;
+  height: 125px;
+  width: 540px;
+  margin: auto;
+  margin-top: 70px;
+}
+
+header .container,
+header .container div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+header .front {
+  z-index: 2;
+}
+
+header .front img {
+  height: auto;
+  width: 100%;
+}
+
+header .back {
+  background-size: cover;
+  background-position: 50% 100%;
+  background-image: url('../img/header_back.gif');
+  z-index: 1;
+}
+
+article {
+  max-width: 1000px;
+  margin: auto;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 26px;
+  letter-spacing: 0.1px;
+  text-align: justify;
+  margin-top: 70px;
+  line-height: 34px;
+}
+
+article .giflink {
+  color: rgb(245, 90, 3);
+  font-style: italic;
+}
+
+article .no-link {
+  cursor: default;
+}
+
+.final {
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+iframe {
+  margin-bottom: -4px;
+  margin-left: 2px;
+}
+
+.final a,
+.final iframe {
+  margin-right: 8px;
+  margin-left: 8px;
+  color: #111;
+}
+
+.github-link {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+.snaps {
+  transition: background-color 1.2s;
+  max-width: 50rem;
+  width: 375px;
+  padding-bottom: 15px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-clip: content-box;
+  background-color: rgb(234, 200, 34);
+  box-sizing: border-box;
+  position: relative;
+  margin: auto;
+  font: 2em 'Oswald', sans-serif;
+}
+
+.snaps:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 50px solid transparent;
+  border-bottom: 50px solid #fefefe;
+  bottom: -60px;
+  right: -65px;
+  box-shadow: 0px 7px 6px -9px black;
+  transform: rotate(135deg);
+}
+
+.snaps:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 50px solid transparent;
+  border-top: 50px solid #fefefe;
+  top: -60px;
+  left: -65px;
+  box-shadow: 0px -7px 6px -9px black;
+  transform: rotate(135deg);
+}
+
+.snaps:hover {
+  background-color: rgba(234, 200, 34, 0.2);
+}
+
 textarea {
-	resize: none;
+  resize: none;
 }
