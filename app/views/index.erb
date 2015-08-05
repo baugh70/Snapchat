@@ -5,17 +5,31 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
   </head>
+	<body>
+	<div style='margin-left: 150px;'>
 	<p>Home</p>
 	<a href='/new'>
-	<button>New Snap</button>
+	<button class='btn btn-primary'>New Snap</button>
 	</a>
+	</div>
+	<% @num = 0 %>
 	<% @snaps.each do |snap| %>
 			<div class='tweet'>
 			<!-- 	do in html works with eeach element inside so this comment happens 3 times	 -->
-				<p style='z-index: 2;'> <%= snap.caption %> <%= snap.timer %> <%= snap.time %> <%= snap.format %> <img style='z-index: 1; max-height: 300px; max-width: 300px;' src='<%= snap.link %>'> </p>
+				<p> <%= snap.caption %> ||| <%= snap.timer %> ||| <%= snap.time %> ||| <img id='<%=@num%>' style='visibility: hidden; max-height: 300px; max-width: 300px;' src='<%= snap.link %>'> </p>
+				<button class='btn btn-outline' onclick="show<%= @num %>()"> View Snap </button>
 		</div>
 		<br><br>
+		<script>
+			function show<%= @num %>() {
+				document.getElementById('<%=@num%>').style.visibility = 'visible';
+				setTimeout(hide<%= @num %>, <%= snap.timer * 1000 %>)
+			}
+			function hide<%= @num %>() {
+					document.getElementById('<%=@num%>').style.visibility = 'hidden';
+				}
+		</script>
+		<% @num += 1 %>
 		<% end %>
-  <body>
   </body>
 </html>

@@ -10,6 +10,10 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/' do
+		time = Time.new
+		# 		this is just test code to test multiple tweets, we can delete it later
+		@snap = Snapchat.new("params[:to]", "test caption", 5, "Sent at #{time.hour}:#{time.min}", "png", "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
+		@snap = Snapchat.new("params[:to]", "test caption", 3, "Sent at #{time.hour}:#{time.min}", "png", "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
     @snaps = Snapchat.all
 		erb :index
   end
