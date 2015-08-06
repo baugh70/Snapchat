@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/' do
-    @snaps = Snap.all
 # 		time = Time.new
 # 		# 		this is just test code to test multiple tweets, we can delete it later
 # 		snap1 = Snap.new("params[:to]", "test caption", 5, "Sent at #{time.hour}:#{time.min}", "png", "http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg")
@@ -24,6 +23,9 @@ class ApplicationController < Sinatra::Base
 	end
 	
 	post '/new' do
+		
+# 		@user = User.find_by(:to => params[:to])
+		
     time  = Time.new
 		
 		if (params[:url] == "") || (params[:url][0..3].downcase != "http")
@@ -36,12 +38,18 @@ class ApplicationController < Sinatra::Base
 			@error = "TIME LIMIT"
 			erb :noPic
 		else
-      @snap = Snap.new(:to => params[:to], :caption => params[:cap], :timer => params[:time], :time => "#{time.hour}:#{time.min}",:format => "png", :link => params[:url], :read => "false")
+			# 			need to add from user here and in erb when u log in
+			@snap = Snap.new(:to_id => params[:to] , :caption => params[:cap], :timer => params[:time], :time => "#{time.hour}:#{time.min}",:format => "png", :link => params[:url], :read => "false")
       @snap.save
       @snaps = Snap.all
-      redirect '/'
+      redirect '/snaps'
 		end
 		
+	end
+	
+	get '/snaps' do
+		@snaps = Snap.all
+		erb :snaps
 	end
 	
 end

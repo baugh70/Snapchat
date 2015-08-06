@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806134757) do
+ActiveRecord::Schema.define(version: 20150806142141) do
 
   create_table "snaps", force: :cascade do |t|
-    t.string "to"
-    t.string "caption"
-    t.string "timer"
-    t.string "time"
-    t.string "format"
-    t.string "link"
-    t.string "read"
+    t.string  "caption"
+    t.string  "timer"
+    t.string  "time"
+    t.string  "format"
+    t.string  "link"
+    t.string  "read"
+    t.integer "from_id"
+    t.integer "to_id"
   end
 
   create_table "users", force: :cascade do |t|
