@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805172516) do
+ActiveRecord::Schema.define(version: 20150806134757) do
 
   create_table "snaps", force: :cascade do |t|
     t.string "to"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20150805172516) do
     t.string "format"
     t.string "link"
     t.string "read"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.string "email"
+    t.string "friends"
   end
 
 end
