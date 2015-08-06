@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
 			erb :noPic
 		else
 			# 			need to add from user here and in erb when u log in
-			@snap = Snap.new(:to_id => params[:to] , :caption => params[:cap], :timer => params[:time], :time => "#{time.hour}:#{time.min}",:format => "png", :link => params[:url], :read => "false")
+			@snap = Snap.new(:to => params[:to] , :caption => params[:cap], :timer => params[:time], :time => "#{time.hour}:#{time.min}",:format => "png", :link => params[:url], :read => "false")
       @snap.save
       @snaps = Snap.all
       redirect '/snaps'
