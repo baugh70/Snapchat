@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806142141) do
+ActiveRecord::Schema.define(version: 20150806200110) do
 
   create_table "snaps", force: :cascade do |t|
     t.string  "to"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20150806142141) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-    t.string "email"
-    t.string "friends"
+    t.string  "username"
+    t.string  "password"
+    t.string  "email"
+    t.string  "friends"
+    t.integer "user_id"
   end
 
 end

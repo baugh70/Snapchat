@@ -18,21 +18,21 @@ class ApplicationController < Sinatra::Base
 		erb :index
   end
 	
-	post '/' do
+	post '/register' do
 		username = params[:username]
 		password = params[:password]
 		email = params[:email]
 		if (username == "")
 			@error = "USERNAME"
-			@link = "/"
+			@link = "/register"
 			erb :noPic
 		elsif (password == "")
 			@error = "PASSWORD"
-			@link = "/"
+			@link = "/register"
 			erb :noPic
 		elsif (email == "")
 			@error = "EMAIL"
-			@link = "/"
+			@link = "/register"
 			erb :noPic
 		else
 		user = User.new(:username => username, :password => password, :email => email, :friends => "")
@@ -79,6 +79,65 @@ class ApplicationController < Sinatra::Base
 	get '/snaps' do
 		@snaps = Snap.all
 		erb :snaps
+	end
+
+	get '/register' do
+		erb :register
+	end
+
+	get '/login' do
+		puts "get login"
+		erb :login
+	end
+
+	post '/login' do
+		puts "login"
+		username = params[:username]
+		password = params[:password]
+		if (username == "")
+			@error = "USERNAME"
+			@link = "/login"
+			erb :noPic
+		elsif (password == "")
+			@error = "PASSWORD"
+			@link = "/login"
+			erb :noPic
+		else
+			if (username.include? "@")
+			user_by_email = User.find_by(:email => username)
+
+			puts "else in post login"
+			if (password == user_by_email.password)
+				redirect '/snaps'
+			else
+				@error = "PASSWORD"
+				@link = "/login"
+				erb :noPic
+			end
+			else
+				user_by_name = User.find_by(:username => username)
+
+			puts "else in post login"
+			if (password == user_by_name.password)
+				redirect '/snaps'
+			else
+				@error = "PASSWORD"
+				@link = "/login"
+				erb :noPic
+			end
+			end
+			# user_by_name = User.find_by(:username => username)
+
+			# puts "else in post login"
+			# if (password == user_by_name.password) || (password == user_by_email.password)
+			# 	redirect '/snaps'
+			# else
+			# 	@error = "PASSWORD"
+			# 	@link = "/login"
+			# 	erb :noPic
+			# end
+
+		end
 	end
 	
 end

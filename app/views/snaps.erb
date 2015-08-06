@@ -5,14 +5,37 @@
   <title>FnapChat</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/GifLinks.js"></script>
+  <style type="text/css">
+.ss {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #F7F6FF;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.ss:hover {
+  outline: none;
+}
+.ss:focus {
+  outline: none;
+}
+.ss:active {
+  outline: none;
+  position: relative;
+  border: none;
+  top: 2px;
+}
+  </style>
 </head>
 
-<body>
+<body style="background-color: #2CA1CC;">
   <div style='margin-left: 150px;'>
-    <p>Home</p>
     <a href='/new'>
-      <button class='btn btn-primary'>New Snap</button>
+      <button class='ss btn btn-primary'>New Snap</button>
+    </a>
+    <a href="/">
+      <button class='ss btn btn-primary' onclick="self.close()">Logout</button>
     </a>
   </div>
   <% @num=0 %>
@@ -48,6 +71,7 @@
         <% @num +=1 %>
           <% end %>
             <% end %>
+
 </body>
 
 </html>

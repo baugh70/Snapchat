@@ -17,9 +17,8 @@ body {
 }
 
 .Container {
-  width: 700px;
-  max-height: 700px;
-  padding: 50px;
+  width: 400px;
+  max-height: 485px;
   margin: auto;
   margin-top: 50px;
   background-color: #fff;
@@ -118,21 +117,21 @@ body {
 
 <body>
 	<div class="Container">
-	<h1 style="transform: scale(2,2);">Welcome to Snapchat</h1>
-	<h1></h1>
-	<br>
-	<a href="/register">
-			<button type="submit" style='width: 275px; background-color: rgb(44,161,204); margin-right:5px;' class='ss' > Sign Up </button>
-			</a>
-			<h1></h1>
+  <h2>Sign up</h2>
+  <p>Already have an account? Login <a href="/login">here</a></p>
+		<form name="form" action="/register" method="POST">
+  <input type="username" name="username" placeholder = "Username"/>
+  <input id = "side" type="Password" name="password" placeholder = "Password">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+  <input id = "side" type="email" name="email" placeholder = "Email">
 			<br>
-			<a href="/login">
-<button type="submit" style='width: 275px; background-color: rgb(44,161,204);' class='ss' > Login </button>
-</a>
+			<h1></h1>
+			<button type="submit" style='width: 275px; background-color: rgb(44,161,204);' class='ss' > Sign Up </button>
+			<h1></h1>
+
 
 			<br>
-		<h1></h1>
-		<br>
+		</form>
 </div>
 </body>
 
