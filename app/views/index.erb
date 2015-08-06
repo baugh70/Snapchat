@@ -5,16 +5,132 @@
   <title>FnapChat</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/GifLinks.js"></script>
+	<style>@import url(http://fonts.googleapis.com/css?family=Roboto);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2CA1CC;
+  font-family: 'Roboto', sans-serif;
+}
+
+.Container {
+  width: 400px;
+  max-height: 485px;
+  margin: auto;
+  margin-top: 50px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: 1F1F1F;
+  text-align: center;
+}
+.Container h2 {
+  padding: 20px;
+}
+.Container p {
+  color: #B8B8B8;
+  font-size: 13px;
+}
+.Container input {
+  margin: 20px 0 0;
+  padding: 10px;
+  width: 80%;
+  background-color: #EAEDF2;
+  border: none;
+  border-radius: 3px;
+  color: #A0A0A0;
+}
+.Container input:hover {
+  outline: none;
+}
+.Container input:focus {
+  outline: none;
+}
+.Container input:active {
+  outline: none;
+}
+.Container .ss {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #F7F6FF;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.Container .ss:hover {
+  outline: none;
+}
+.Container .ss:focus {
+  outline: none;
+}
+.Container .ss:active {
+  outline: none;
+  position: relative;
+  border: none;
+  top: 2px;
+}
+.Container hr {
+  width: 75%;
+  border-radius: 10px;
+  border: 1px solid #F4F4F4;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.Container a {
+  line-height: 4;
+  color: #5E54C7;
+  text-decoration: none;
+}
+
+#side {
+  width: 37%;
+}
+
+.Normal {
+  width: 80%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  background-color: #19B8D6;
+  height: 37px;
+}
+
+.Social {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.facebook {
+  background-color: #4E6496;
+}
+
+.twitter {
+  background-color: #56A0DE;
+}
+
+.google {
+  background-color: #DC4C30;
+}
+	</style>
 </head>
 
 <body>
-  <div style='margin-left: 150px;'>
-    <p>Home</p>
-    <a href='/snaps'>
-      <button class='btn btn-primary'>View Snaps</button>
-    </a>
-  </div>
+	<div class="Container">
+  <h2>Sign up</h2>
+  <p>Looking forward to seeing you soon, Wink Wink</p>
+		<form name="form" action="/" method="POST">
+  <input type="username" name="username" placeholder = "Username"/>
+  <input id = "side" type="Password" name="password" placeholder = "Password">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+  <input id = "side" type="email" name="email" placeholder = "Email">
+			<br>
+			<h1></h1>
+			<button type="submit" style='width: 275px; background-color: rgb(44,161,204);' class='ss' > Enter </button>
+			<h1></h1>
+			<br>
+		</form>
+</div>
 </body>
 
 </html>

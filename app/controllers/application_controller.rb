@@ -18,6 +18,31 @@ class ApplicationController < Sinatra::Base
 		erb :index
   end
 	
+	post '/' do
+		username = params[:username]
+		password = params[:password]
+		email = params[:email]
+		if (username == "")
+			@error = "USERNAME"
+			@link = "/"
+			erb :noPic
+		elsif (password == "")
+			@error = "PASSWORD"
+			@link = "/"
+			erb :noPic
+		elsif (email == "")
+			@error = "EMAIL"
+			@link = "/"
+			erb :noPic
+		else
+		user = User.new(:username => username, :password => password, :email => email, :friends => "")
+		user.save
+		puts User.all
+		@snaps = Snap.all
+		redirect '/snaps'
+		end
+	end
+	
 	get '/new' do
 		erb :snapchat
 	end
@@ -30,12 +55,15 @@ class ApplicationController < Sinatra::Base
 		
 		if (params[:url] == "") || (params[:url][0..3].downcase != "http")
 			@error = "URL"
+			@link = "/new"
 			erb :noPic
 		elsif (params[:to] == "")
 			@error = "RECIPIENT"
+			@link = "/new"
 			erb :noPic
 		elsif (params[:time] == "none")  
 			@error = "TIME LIMIT"
+			@link = "/new"
 			erb :noPic
 		else
 			# 			need to add from user here and in erb when u log in
