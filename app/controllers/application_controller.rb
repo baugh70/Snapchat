@@ -68,7 +68,7 @@ class ApplicationController < Sinatra::Base
 		else
 			# 			need to add from user here and in erb when u log in
       @user = User.find_by(:username => params[:to])
-      @snap = Snap.new(:user_id => "@user.id ", :caption => params[:cap], :timer => params[:time], :time => "#{time.hour}:#{time.min}",:format => "png", :link => params[:url], :read => "false")
+      @snap = Snap.new(:user_id => @id, :caption => params[:cap], :timer => params[:time], :time => "#{time.hour}:#{time.min}",:format => "png", :link => params[:url], :read => "false")
       @snap.save
       @snaps = Snap.all
       redirect '/snaps'
@@ -105,7 +105,7 @@ class ApplicationController < Sinatra::Base
 		else
 			if (username.include? "@")
 			user_by_email = User.find_by(:email => username)
-
+			@id = user_by_email.user_id
 			puts "else in post login"
 			if (password == user_by_email.password)
 				redirect '/snaps'
@@ -116,7 +116,7 @@ class ApplicationController < Sinatra::Base
 			end
 			else
 				user_by_name = User.find_by(:username => username)
-
+			@id = user_by_email.user_id
 			puts "else in post login"
 			if (password == user_by_name.password)
 				redirect '/snaps'
