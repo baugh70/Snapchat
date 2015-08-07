@@ -6,73 +6,75 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style type="text/css">
-.ss {
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  color: #F7F6FF;
-  cursor: pointer;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-}
-.ss:hover {
-  outline: none;
-}
-.ss:focus {
-  outline: none;
-}
-.ss:active {
-  outline: none;
-  position: relative;
-  border: none;
-  top: 2px;
-}
-
+    .ss {
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      color: #F7F6FF;
+      cursor: pointer;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    }
+    .ss:hover {
+      outline: none;
+    }
+    .ss:focus {
+      outline: none;
+    }
+    .ss:active {
+      outline: none;
+      position: relative;
+      border: none;
+      top: 2px;
+    }
   </style>
 </head>
 
 <body style="background-color: #2CA1CC;">
-  <div style='margin-left: 150px;'>
-    <a href='/new'>
-      <button class='btn btn-primary'>New Snap</button>
-    </a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/">
-      <button class='btn btn-primary' onclick="self.close()">Logout</button>
-    </a>
-  </div>
-  <% @num=0 %>
-    <% @snaps.each do |snap| %>
-      <% if(snap.read=="false" ) %>
-        <div class='snaps' id='div<%= @num %>'>
-          <!-- 	do in html works with eeach element inside so this comment happens 3 times	 -->
-          <p></p>
-          <p>
-            <%= snap.caption %> |||
-              <%= snap.timer %> |||
-                <%= snap.time %> |||
-                  <br> <img id='snap<%=@num%>' style='visibility: hidden; max-height: 300px; max-width: 300px;' src='<%= snap.link %>'> </p>
+  <% if session[:user_id] %>
+    <div style='margin-left: 150px;'>
+			<h1> Welcome back, <%= @username %>!</h1>
+      <a href='/new'>
+        <button class='btn btn-primary'>New Snap</button>
+      </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="/logout">
+        <button class='btn btn-primary'>Logout</button>
+      </a>
+    </div>
+    <% @num=0 %>
+      <% @snaps.each do |snap| %>
+        <% if(snap.read=="false" ) %>
+          <div class='snaps' id='div<%= @num %>'>
+            <!-- 	do in html works with eeach element inside so this comment happens 3 times	 -->
+            <p></p>
+            <p>
+              <%= snap.caption %> |||
+                <%= snap.timer %> |||
+                  <%= snap.time %> |||
+                    <br> <img id='snap<%=@num%>' style='visibility: hidden; max-height: 300px; max-width: 300px;' src='<%= snap.link %>'> </p>
 
-          <button class='btn btn-outline' onclick="show<%= @num %>()"> View Snap </button>
-					        <% snap.read=("true") %>
-        <% snap.save %>
+            <button class='btn btn-outline' onclick="show<%= @num %>()"> View Snap </button>
+            <% snap.read=( "true") %>
+              <% snap.save %>
+                <br>
+                <h1></h1>
+          </div>
           <br>
-          <h1></h1>
-        </div>
-        <br>
-        <br>
-        <script>
-          function show<%= @num %>() {
-          				document.getElementById('snap<%=@num%>').style.visibility = 'visible';
-          				setTimeout(hide<%= @num %>, <%= (snap.timer).to_i * 1000 %>)
-          			}
-          			function hide<%= @num %>() {
-          					document.getElementById('snap<%=@num%>').style.visibility = 'hidden';
-          					document.getElementById('div<%=@num%>').style.visibility = 'hidden';
-          				}
-        </script>
-        <% @num +=1 %>
-          <% end %>
-            <% end %>
+          <br>
+          <script>
+            function show<%= @num %>() {
+            				document.getElementById('snap<%=@num%>').style.visibility = 'visible';
+            				setTimeout(hide<%= @num %>, <%= (snap.timer).to_i * 1000 %>)
+            			}
+            			function hide<%= @num %>() {
+            					document.getElementById('snap<%=@num%>').style.visibility = 'hidden';
+            					document.getElementById('div<%=@num%>').style.visibility = 'hidden';
+            				}
+          </script>
+          <% @num +=1 %>
+         <% end %>
+        <% end %>
+       <% end %>
 
 </body>
 
