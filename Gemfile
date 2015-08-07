@@ -6,9 +6,9 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem "pg"
+gem "tux"
 
 group :development do 
   gem 'pry'
-  gem 'tux'
 	gem "sqlite3"
 end
