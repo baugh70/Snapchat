@@ -14,14 +14,13 @@
   <h1 class="text-center">Sending a Snap</h1>
   <form class="text-center" action='/new' method='POST'>
     <h3>Picture URL:</h3>
-    <textarea name='url' rows="5" style="max-width: 475px; margin: auto;" class='form-control' placeholder="e.g. 'http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg'">
-    </textarea>
+    <input type='url' name='url' rows="5" style="max-width: 475px; margin: auto;" class='form-control' placeholder="e.g. 'http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg'" required>
     <br>
     <h3>Caption:</h3>
-    <input class='form-control' style='min-width:350px; max-width: 350px; margin: auto;' type="text" name='cap' placeholder="e.g. Look at this cat!">
+    <input class='form-control' style='min-width:350px; max-width: 350px; margin: auto;' type="text" name='cap' placeholder="e.g. Look at this cat!" required>
     <br>
     <h3>Recipient:</h3>
-    <input class='form-control' style='max-width: 200px; margin: auto;' type="text" name='to' placeholder="e.g. @martingarrix">
+    <input class='form-control' style='max-width: 200px; margin: auto;' type="text" name='to' placeholder="e.g. @martingarrix" required>
     <br>
     <h3>Time:</h3>
     <select class='form-control' style='max-width: 200px; margin: auto;' name='time'>
