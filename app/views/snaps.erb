@@ -41,7 +41,7 @@
         <button class='btn btn-primary'>Logout</button>
       </a>
       </div>
-	      <% @num=0 %>
+	      <% @num=1 %>
         <% @snaps.each do |snap| %>
         <% if(snap.read=="false" ) %>
         <% run = false %>
@@ -76,10 +76,10 @@
   						  <% snap.read= "true" %>
                 <% snap.save %>
               <% end %>
-              <% @run = true %>                      
+              <% @run = true %>
     				}
          </script>
-         <% @num +=1 %>
+         <% @num += 1 %>
        <% end %>
     <% end %>
   <% end %>

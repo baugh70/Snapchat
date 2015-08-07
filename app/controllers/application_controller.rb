@@ -83,6 +83,7 @@ class ApplicationController < Sinatra::Base
 		else
 			user = User.create(:username => username, :password => password, :email => email, :friends => "")
 			@snaps = Snap.all
+			session[:user_id] = user.id
 			redirect '/snaps'
 		end
 	end
@@ -92,6 +93,8 @@ class ApplicationController < Sinatra::Base
 	end
 	
 	post '/login' do
+		username = params[:username]
+		password = params[:password]
 			if (username.include? "@")
 				user = User.find_by(:email => username)
 			else
