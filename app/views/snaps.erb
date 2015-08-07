@@ -41,6 +41,10 @@
         <button class='btn btn-primary'>Logout</button>
       </a>
     </div>
+	<% def set(snap) %>
+							<% snap.read=( "true") %>
+              <% snap.save %>
+						<% end %>
     <% @num=0 %>
       <% @snaps.each do |snap| %>
         <% if(snap.read=="false" ) %>
@@ -54,14 +58,15 @@
                     <br> <img id='snap<%=@num%>' style='visibility: hidden; max-height: 300px; max-width: 300px;' src='<%= snap.link %>'> </p>
 
             <button class='btn btn-outline' onclick="show<%= @num %>()"> View Snap </button>
-            <% snap.read=( "true") %>
-              <% snap.save %>
+						
+						
                 <br>
                 <h1></h1>
           </div>
           <br>
           <br>
           <script>
+						
             function show<%= @num %>() {
             				document.getElementById('snap<%=@num%>').style.visibility = 'visible';
             				setTimeout(hide<%= @num %>, <%= (snap.timer).to_i * 1000 %>)
@@ -69,6 +74,8 @@
             			function hide<%= @num %>() {
             					document.getElementById('snap<%=@num%>').style.visibility = 'hidden';
             					document.getElementById('div<%=@num%>').style.visibility = 'hidden';
+																							console.log("hey")
+												<% set(snap) %>
             				}
           </script>
           <% @num +=1 %>
