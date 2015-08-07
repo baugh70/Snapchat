@@ -92,17 +92,6 @@ class ApplicationController < Sinatra::Base
 	end
 	
 	post '/login' do
-		username = params[:username]
-		password = params[:password]
-		if (username == "")
-			@error = "USERNAME"
-			@link = "/login"
-			erb :noPic
-		elsif (password == "")
-			@error = "PASSWORD"
-			@link = "/login"
-			erb :noPic
-		else
 			if (username.include? "@")
 				user = User.find_by(:email => username)
 			else
@@ -122,7 +111,6 @@ class ApplicationController < Sinatra::Base
 				@link = "/login"
 				erb :noPic
 			end
-		end
 	end
 
 	get '/logout' do
