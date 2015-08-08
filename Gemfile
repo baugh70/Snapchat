@@ -7,6 +7,7 @@ gem "sinatra-activerecord"
 gem "rake"
 gem "pg"
 gem "tux"
+gem "twilio-ruby"
 
 group :development do 
   gem 'pry'
