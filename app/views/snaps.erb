@@ -30,7 +30,7 @@
 </head>
 
 <body style="background-color: #2CA1CC;">
-<!--   <%# if session[:user_id] %> -->
+  <% if session[:user_id] %>
     <div style='margin-left: 150px;'>
 			<h1> Welcome back, <%= @username %>!</h1>
       <a href='/new'>
@@ -43,7 +43,7 @@
       </div>
 	      <% @num=1 %>
         <% @snaps.each do |snap| %>
-<!--         <% #if(snap.read=="false" ) %> -->
+        <% if(snap.read=="false" ) %>
         <% @run = false %>
         <div class='snaps' id='div<%= @num %>'>
           <!-- 	do in html works with eeach element inside so this comment happens 3 times	 -->
@@ -51,7 +51,7 @@
           <p>
             <%= snap.caption %> |||
             <%= snap.timer %> |||
-<!--             <%#= snap.time %> ||| -->
+            <%= snap.time %> |||
             <br> <img id='snap<%=@num%>' style='visibility: hidden; max-height: 300px; max-width: 300px;' src='<%= snap.link %>'> </p>
 
             <button class='btn btn-outline' onclick="show<%= @num %>()"> View Snap </button>
@@ -71,16 +71,16 @@
        			function hide<%= @num %>() {
      					document.getElementById('snap<%=@num%>').style.visibility = 'hidden';
      					document.getElementById('div<%=@num%>').style.visibility = 'hidden';
-//               <% #if @run == true%>
-//                 <%#= #puts "hi" %>
-//   						  <% #snap.read = "true" %>
-//                 <% #snap.save %>
-//               <% #end %>
-//               <% #@run = true %>
+              <% if @run == true%>
+                <%= puts "hi" %>
+  						  <% snap.read = "true" %>
+                <% snap.save %>
+              <% end %>
+              <% @run = true %>
     				}
          </script>
          <% @num += 1 %>
-<!--        <% #end %> -->
+       <% end %>
     <% end %>
   <% end %>
 
