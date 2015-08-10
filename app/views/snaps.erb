@@ -71,12 +71,12 @@
        			function hide<%= @num %>() {
      					document.getElementById('snap<%=@num%>').style.visibility = 'hidden';
      					document.getElementById('div<%=@num%>').style.visibility = 'hidden';
-              <% #if @run == true%>
-                <%#= #puts "hi" %>
-  						  <% #snap.read = "true" %>
-                <% #snap.save %>
-              <% #end %>
-              <% #@run = true %>
+//               <% #if @run == true%>
+//                 <%#= #puts "hi" %>
+//   						  <% #snap.read = "true" %>
+//                 <% #snap.save %>
+//               <% #end %>
+//               <% #@run = true %>
     				}
          </script>
          <% @num += 1 %>
