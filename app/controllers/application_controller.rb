@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
 	
 	get '/snaps' do
 		if session[:user_id] != nil
-						@username = User.find_by(session[:username])
+			@username = User.find_by(session[:username])
 			@snaps = Snap.all
 			erb :snaps
 		else
