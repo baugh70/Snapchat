@@ -30,7 +30,7 @@
 </head>
 
 <body style="background-color: #2CA1CC;">
-  <% if session[:user_id] %>
+<!--   <%# if session[:user_id] %> -->
     <div style='margin-left: 150px;'>
 			<h1> Welcome back, <%= @username %>!</h1>
       <a href='/new'>
@@ -80,7 +80,7 @@
     				}
          </script>
          <% @num += 1 %>
-       <% end %>
+<!--        <% #end %> -->
     <% end %>
   <% end %>
 
