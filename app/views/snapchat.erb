@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Send Snapchat</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+	<% if session[:user_id] %>
+  <h1 class="text-center">Sending a Snap</h1>
+  <form class="text-center" action='/new' method='POST'>
+    <h3>Picture URL:</h3>
+    <input type='url' name='url' rows="5" style="max-width: 475px; margin: auto;" class='form-control' placeholder="e.g. 'http://www.cats.org.uk/uploads/images/pages/photo_latest14.jpg'" required>
+    <br>
+    <h3>Caption:</h3>
+    <input class='form-control' style='min-width:350px; max-width: 350px; margin: auto;' type="text" name='cap' placeholder="e.g. Look at this cat!" required>
+    <br>
+    <h3>Recipient:</h3>
+    <input class='form-control' style='max-width: 200px; margin: auto;' type="text" name='to' placeholder="e.g. @martingarrix" required>
+    <br>
+    <h3>Time:</h3>
+    <select class='form-control' style='max-width: 200px; margin: auto;' name='time'>
+      <option disabled value="none">Select a time limit</option>
+      <option selected value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" class="btn btn-outline btn-primary">
+  </form>
+	<% end %>
+</body>
+
+</html>
+<!-- url, to who, caption, time -->

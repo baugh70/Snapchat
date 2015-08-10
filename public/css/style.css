@@ -1,0 +1,52 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);
+
+.snaps {
+  transition: visibility 1.2s;
+  max-width: 50rem;
+  width: 375px;
+  padding-bottom: 15px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-clip: content-box;
+  background-color: rgb(234, 200, 34);
+  box-sizing: border-box;
+  position: relative;
+  margin: auto;
+  font: 2em 'Oswald', sans-serif;
+}
+
+.snaps:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 50px solid transparent;
+  border-bottom: 50px solid #fefefe;
+  bottom: -60px;
+  right: -65px;
+  box-shadow: 0px 7px 6px -9px black;
+  transform: rotate(135deg);
+}
+
+.snaps:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 50px solid transparent;
+  border-top: 50px solid #fefefe;
+  top: -60px;
+  left: -65px;
+  box-shadow: 0px -7px 6px -9px black;
+  transform: rotate(135deg);
+}
+
+.snaps:hover {
+  background-color: hidden;
+}
+
+textarea {
+  resize: none;
+}
+.btn {
+  text-decoration: none;
+}
